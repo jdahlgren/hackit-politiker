@@ -17,7 +17,7 @@ public class OrganService {
  public Flux<OrganItem> getUtskott() {
   return organApi.getOrgan()
       .flatMapMany(Flux::fromIterable)
-      .filter(i -> i.typ().equals("utskott"));
+      .filter(i -> i.getTyp().equals("utskott"));
 
  }
 }

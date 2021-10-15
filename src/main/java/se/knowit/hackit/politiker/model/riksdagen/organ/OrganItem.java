@@ -1,6 +1,19 @@
 package se.knowit.hackit.politiker.model.riksdagen.organ;
 
-public record OrganItem(String kod, String namn, String typ, String sortering,
-                        String namnEn, String domN, String beskrivning) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public final class OrganItem {
+    private String kod;
+    private String namn;
+    private String typ;
+    private String sortering;
+    private String namnEn;
+    private String domN;
+    private String beskrivning;
 }

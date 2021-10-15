@@ -20,7 +20,7 @@ public class OrganApi {
         .uri("/sv/koder/?typ=organ&utformat=json")
         .retrieve()
         .bodyToMono(OrganRoot.class)
-        .map(OrganRoot::organ)
-        .map(Organ::organ);
+        .map(OrganRoot::getOrgan)
+        .map(Organ::getOrgan);
   }
 }

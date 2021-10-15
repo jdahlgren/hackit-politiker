@@ -1,14 +1,32 @@
 package se.knowit.hackit.politiker.model.riksdagen.votering;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder
-public record Votering(String hangar_id, String rm, String beteckning,
-                       String punkt, String votering_id, String intressent_id,
-                       String namn, String fornamn, String efternamn,
-                       String valkrets, String iort, String parti,
-                       String banknummer, String kon, String fodd, String rost,
-                       String avser, String votering, String votering_url_xml,
-                       String dok_id, String systemdatum) {
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public final class Votering {
+    private String hangar_id;
+    private String rm;
+    private String beteckning;
+    private String punkt;
+    private String votering_id;
+    private String intressent_id;
+    private String namn;
+    private String fornamn;
+    private String efternamn;
+    private String valkrets;
+    private String iort;
+    private String parti;
+    private String banknummer;
+    private String kon;
+    private String fodd;
+    private String rost;
+    private String avser;
+    private String votering;
+    private String votering_url_xml;
+    private String dok_id;
+    private String systemdatum;
 }
