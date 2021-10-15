@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonItem;
 import se.knowit.hackit.politiker.service.PersonService;
 
@@ -25,7 +26,7 @@ public class PersonController {
   }
 
   @GetMapping("{personId}")
-  public Flux<PersonItem> getPerson(@PathVariable String personId) {
+  public Mono<PersonItem> getPerson(@PathVariable String personId) {
     return personService.getPerson(personId);
   }
 }

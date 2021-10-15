@@ -3,6 +3,7 @@ package se.knowit.hackit.politiker.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import se.knowit.hackit.politiker.api.PersonApi;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonItem;
 
@@ -16,7 +17,7 @@ public class PersonService {
     return personApi.getPersons(partiKod, utskottKod);
   }
 
-  public Flux<PersonItem> getPerson(String personId) {
+  public Mono<PersonItem> getPerson(String personId) {
     return personApi.getPerson(personId);
   }
 }

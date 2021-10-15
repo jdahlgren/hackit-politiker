@@ -1,6 +1,5 @@
 package se.knowit.hackit.politiker.model.riksdagen.person;
 
-import java.io.Serializable;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonLista implements Serializable {
+public class PersonLista {
 
   private String systemdatum;
   private String hits;

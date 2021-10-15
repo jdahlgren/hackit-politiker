@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonItem;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonLista;
+import se.knowit.hackit.politiker.model.riksdagen.person.PersonListaSingle;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonRoot;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonRootSingle;
 
@@ -25,13 +27,13 @@ public class PersonApi {
             .build()
         )
         .retrieve()
-        .bodyToMono(PersonRoot.class)
+        .bodyToFlux(PersonRoot.class)
         .map(PersonRoot::getPersonLista)
         .map(PersonLista::getPerson)
-        .flatMapMany(Flux::fromIterable);
+        .flatMap(Flux::fromIterable);
   }
 
-  public Flux<PersonItem> getPerson(String personId) {
+  public Mono<PersonItem> getPerson(String personId) {
     return webClient.get()
         .uri(builder -> builder
             .path("personlista/")
@@ -41,8 +43,7 @@ public class PersonApi {
         )
         .retrieve()
         .bodyToMono(PersonRootSingle.class)
-        .map(PersonRootSingle::getPersonLista)
-        .map(PersonLista::getPerson)
-        .flatMapMany(Flux::fromIterable);
+        .map(PersonRootSingle::getPersonListaSingle)
+        .map(PersonListaSingle::getPerson);
   }
 }
