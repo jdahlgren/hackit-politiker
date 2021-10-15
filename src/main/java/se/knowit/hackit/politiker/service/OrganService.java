@@ -14,10 +14,12 @@ public class OrganService {
 
  private OrganApi organApi;
 
+ public Flux<OrganItem> getOrgan() {
+  return organApi.getOrgan();
+ }
+
  public Flux<OrganItem> getUtskott() {
   return organApi.getOrgan()
-      .flatMapMany(Flux::fromIterable)
       .filter(i -> i.getTyp().equals("utskott"));
-
  }
 }

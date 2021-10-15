@@ -15,6 +15,11 @@ public class OrganController {
 
   private OrganService organService;
 
+  @GetMapping()
+  public Flux<OrganItem> getOrgan() {
+    return organService.getOrgan();
+  }
+
   @GetMapping("utskott")
   public Flux<OrganItem> getUtskott() {
     return organService.getUtskott();

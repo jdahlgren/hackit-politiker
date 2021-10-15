@@ -1,10 +1,9 @@
 package se.knowit.hackit.politiker.api;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
+import reactor.core.publisher.Flux;
 import se.knowit.hackit.politiker.model.riksdagen.organ.Organ;
 import se.knowit.hackit.politiker.model.riksdagen.organ.OrganItem;
 import se.knowit.hackit.politiker.model.riksdagen.organ.OrganRoot;
@@ -15,12 +14,13 @@ public class OrganApi {
 
   private WebClient webClient;
 
-  public Mono<List<OrganItem>> getOrgan() {
+  public Flux<OrganItem> getOrgan() {
     return webClient.get()
         .uri("/sv/koder/?typ=organ&utformat=json")
         .retrieve()
-        .bodyToMono(OrganRoot.class)
+        .bodyToFlux(OrganRoot.class)
         .map(OrganRoot::getOrgan)
-        .map(Organ::getOrgan);
+        .map(Organ::getOrgan)
+        .flatMap(Flux::fromIterable);
   }
 }
