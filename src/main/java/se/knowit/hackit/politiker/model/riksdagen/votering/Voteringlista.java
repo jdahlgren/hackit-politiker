@@ -1,4 +1,4 @@
-package se.knowit.hackit.politiker.model.riksdagen;
+package se.knowit.hackit.politiker.model.riksdagen.votering;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;

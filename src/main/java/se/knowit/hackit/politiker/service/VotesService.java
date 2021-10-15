@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import se.knowit.hackit.politiker.api.VotesApi;
-import se.knowit.hackit.politiker.model.riksdagen.Root;
+import se.knowit.hackit.politiker.model.riksdagen.votering.Root;
 
 @Component
 @AllArgsConstructor

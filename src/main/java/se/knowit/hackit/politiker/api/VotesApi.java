@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import se.knowit.hackit.politiker.model.riksdagen.Root;
+import se.knowit.hackit.politiker.model.riksdagen.votering.Root;
 
 @Component
 @AllArgsConstructor
