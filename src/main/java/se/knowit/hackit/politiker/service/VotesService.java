@@ -14,8 +14,8 @@ public class VotesService {
 
  private VotesApi votesApi;
 
- public Mono<Root> getVotes() {
-  return votesApi.getVotes();
+ public Mono<Root> getVotes(int size) {
+  return votesApi.getVotes(size);
 
  }
 }

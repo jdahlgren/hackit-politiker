@@ -12,9 +12,14 @@ public class VotesApi {
 
   private WebClient webClient;
 
-  public Mono<Root> getVotes() {
+  public Mono<Root> getVotes(int size) {
     return webClient.get()
-        .uri("/voteringlista/?sz=10&utformat=json")
+        .uri(builder -> builder
+            .path("voteringlista/")
+            .queryParam("sz", size)
+            .queryParam("utformat", "json")
+            .build()
+        )
         .retrieve()
         .bodyToMono(Root.class);
   }
