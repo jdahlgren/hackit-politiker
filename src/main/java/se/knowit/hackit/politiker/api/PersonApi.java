@@ -28,7 +28,7 @@ public class PersonApi {
         )
         .retrieve()
         .bodyToFlux(PersonRoot.class)
-        .map(PersonRoot::getPersonLista)
+        .map(PersonRoot::getPersonlista)
         .map(PersonLista::getPerson)
         .flatMap(Flux::fromIterable);
   }
@@ -43,7 +43,7 @@ public class PersonApi {
         )
         .retrieve()
         .bodyToMono(PersonRootSingle.class)
-        .map(PersonRootSingle::getPersonListaSingle)
+        .map(PersonRootSingle::getPersonlista)
         .map(PersonListaSingle::getPerson);
   }
 }

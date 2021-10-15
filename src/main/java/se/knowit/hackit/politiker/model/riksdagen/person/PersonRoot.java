@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PersonRoot {
 
-  private PersonLista personLista;
+  private PersonLista personlista;
 }

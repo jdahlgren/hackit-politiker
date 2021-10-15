@@ -1,5 +1,6 @@
 package se.knowit.hackit.politiker.model.riksdagen.person;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +17,7 @@ public class UppdragItem {
   private String typ;
   private String from;
   private String tom;
-  //private List<String> uppgift;
+  private List<Uppgift> uppgift;
   private String intressentId;
   private String hangarId;
   private String sortering;
