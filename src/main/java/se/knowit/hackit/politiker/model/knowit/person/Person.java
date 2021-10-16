@@ -1,9 +1,14 @@
 package se.knowit.hackit.politiker.model.knowit.person;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se.knowit.hackit.politiker.model.riksdagen.person.PersonItem;
+import se.knowit.hackit.politiker.model.riksdagen.person.Personuppdrag;
+import se.knowit.hackit.politiker.model.riksdagen.person.Personuppgift;
 
 @Data
 @AllArgsConstructor
@@ -20,7 +25,35 @@ public class Person {
   private String valkrets;
   private String status;
   private String bildUrl;
-  private Uppdrag uppdrag;
-  private Uppgift uppgift;
+  private List<Uppdrag> uppdrag;
+  private List<Uppgift> uppgifter;
+
+  public static Person from(PersonItem personItem) {
+    return Person.builder()
+        .personId(personItem.getSourceid())
+        .foddAr(personItem.getFoddAr())
+        .kon(personItem.getKon())
+        .efternamn(personItem.getEfternamn())
+        .tilltalsnamn(personItem.getTilltalsnamn())
+        .partiKod(personItem.getParti())
+        .valkrets(personItem.getValkrets())
+        .status(personItem.getStatus())
+        .bildUrl(personItem.getBildUrlMax())
+        .uppdrag(getUppdrag(personItem.getPersonuppdrag()))
+        .uppgifter(getUppgifter(personItem.getPersonuppgift()))
+        .build();
+  }
+
+  private static List<Uppdrag> getUppdrag(Personuppdrag personuppdrag) {
+    return personuppdrag.getUppdrag().stream()
+        .map(Uppdrag::from)
+        .collect(Collectors.toList());
+  }
+
+  private static List<Uppgift> getUppgifter(Personuppgift personuppgift) {
+    return personuppgift.getUppgift().stream()
+        .map(Uppgift::from)
+        .collect(Collectors.toList());
+  }
 
 }
