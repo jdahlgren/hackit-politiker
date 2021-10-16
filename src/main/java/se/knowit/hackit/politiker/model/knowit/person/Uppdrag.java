@@ -15,7 +15,7 @@ import se.knowit.hackit.politiker.model.riksdagen.person.UppgiftWrapper;
 public class Uppdrag {
 
   private String organKod;
-  private String rollKod;
+  private String roll;
   private String status;
   private String typ;
   private String from;
@@ -25,7 +25,7 @@ public class Uppdrag {
   public static Uppdrag from(UppdragItem uppdragItem) {
     return Uppdrag.builder()
         .organKod(uppdragItem.getOrgan_kod())
-        .rollKod(uppdragItem.getRoll_kod())
+        .roll(uppdragItem.getRoll_kod())
         .status(uppdragItem.getStatus())
         .typ(uppdragItem.getTyp())
         .from(uppdragItem.getFrom())
