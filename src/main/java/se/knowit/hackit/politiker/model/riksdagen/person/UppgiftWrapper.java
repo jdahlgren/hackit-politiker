@@ -9,7 +9,7 @@ import se.knowit.hackit.politiker.model.riksdagen.person.deserializer.StringOrNu
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Uppgift {
+public class UppgiftWrapper {
 
   @JsonDeserialize(using = StringOrNullDeserializer.class)
   private String text;

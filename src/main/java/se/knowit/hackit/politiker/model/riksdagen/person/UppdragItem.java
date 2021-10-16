@@ -17,7 +17,7 @@ public class UppdragItem {
   private String typ;
   private String from;
   private String tom;
-  private List<Uppgift> uppgift;
+  private List<UppgiftWrapper> uppgift;
   private String intressentId;
   private String hangarId;
   private String sortering;

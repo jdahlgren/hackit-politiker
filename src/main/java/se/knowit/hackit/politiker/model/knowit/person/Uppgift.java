@@ -1,18 +1,18 @@
-package se.knowit.hackit.politiker.model.riksdagen.person;
+package se.knowit.hackit.politiker.model.knowit.person;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UppgiftItem {
+@Builder
+public class Uppgift {
 
   private String kod;
-  private List<UppgiftWrapper> uppgift;
+  private List<String> uppgift;
   private String typ;
-  private String intressentId;
-  private String hangarId;
 }
