@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import se.knowit.hackit.politiker.model.knowit.common.Parti;
 import se.knowit.hackit.politiker.model.riksdagen.person.PersonItem;
 import se.knowit.hackit.politiker.model.riksdagen.person.Personuppdrag;
 import se.knowit.hackit.politiker.model.riksdagen.person.Personuppgift;
@@ -21,7 +22,7 @@ public class Person {
   private String kon;
   private String efternamn;
   private String tilltalsnamn;
-  private String partiKod;
+  private Parti parti;
   private String valkrets;
   private String status;
   private String bildUrl;
@@ -35,7 +36,7 @@ public class Person {
         .kon(personItem.getKon())
         .efternamn(personItem.getEfternamn())
         .tilltalsnamn(personItem.getTilltalsnamn())
-        .partiKod(personItem.getParti())
+        .parti(Parti.fromString(personItem.getParti()))
         .valkrets(personItem.getValkrets())
         .status(personItem.getStatus())
         .bildUrl(personItem.getBildUrlMax())
