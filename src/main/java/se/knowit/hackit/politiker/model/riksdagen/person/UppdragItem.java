@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UppdragItem {
 
-  private String organKod;
-  private String rollKod;
+  private String organ_kod;
+  private String roll_kod;
   private String ordningsnummer;
   private String status;
   private String typ;
@@ -21,7 +21,7 @@ public class UppdragItem {
   private String intressentId;
   private String hangarId;
   private String sortering;
-  private String organSortering;
-  private String uppdragRollsortering;
-  private String uppdragStatussortering;
+  private String organ_sortering;
+  private String uppdrag_rollsortering;
+  private String uppdrag_statussortering;
 }

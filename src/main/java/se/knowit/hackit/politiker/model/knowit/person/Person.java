@@ -32,14 +32,14 @@ public class Person {
   public static Person from(PersonItem personItem) {
     return Person.builder()
         .personId(personItem.getSourceid())
-        .foddAr(personItem.getFoddAr())
+        .foddAr(personItem.getFodd_ar())
         .kon(personItem.getKon())
         .efternamn(personItem.getEfternamn())
         .tilltalsnamn(personItem.getTilltalsnamn())
         .parti(Parti.fromString(personItem.getParti()))
         .valkrets(personItem.getValkrets())
         .status(personItem.getStatus())
-        .bildUrl(personItem.getBildUrlMax())
+        .bildUrl(personItem.getBild_url_max())
         .uppdrag(getUppdrag(personItem.getPersonuppdrag()))
         .uppgifter(getUppgifter(personItem.getPersonuppgift()))
         .build();

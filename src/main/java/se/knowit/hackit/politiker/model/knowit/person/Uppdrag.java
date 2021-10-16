@@ -24,8 +24,8 @@ public class Uppdrag {
 
   public static Uppdrag from(UppdragItem uppdragItem) {
     return Uppdrag.builder()
-        .organKod(uppdragItem.getOrganKod())
-        .rollKod(uppdragItem.getRollKod())
+        .organKod(uppdragItem.getOrgan_kod())
+        .rollKod(uppdragItem.getRoll_kod())
         .status(uppdragItem.getStatus())
         .typ(uppdragItem.getTyp())
         .from(uppdragItem.getFrom())
