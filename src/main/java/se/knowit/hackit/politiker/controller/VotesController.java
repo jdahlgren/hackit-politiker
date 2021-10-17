@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
-import se.knowit.hackit.politiker.model.riksdagen.votering.Root;
+import reactor.core.publisher.Flux;
+import se.knowit.hackit.politiker.model.knowit.votering.VoteringResponse;
 import se.knowit.hackit.politiker.service.VotesService;
 
 @RestController
@@ -15,7 +15,7 @@ public class VotesController {
   private VotesService votesService;
 
   @GetMapping("votering")
-  public Mono<Root> getVotes(@RequestParam int size) {
-    return votesService.getVotes(size);
+  public Flux<VoteringResponse> getVotes(@RequestParam int size, @RequestParam(required = false) String personId) {
+    return votesService.getVotering(size, personId);
   }
 }
