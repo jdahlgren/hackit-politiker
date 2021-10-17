@@ -39,7 +39,7 @@ public class Person {
         .parti(Parti.fromString(personItem.getParti()))
         .valkrets(personItem.getValkrets())
         .status(personItem.getStatus())
-        .bildUrl(personItem.getBild_url_max())
+        .bildUrl(personItem.getBild_url_192())
         .uppdrag(getUppdrag(personItem.getPersonuppdrag()))
         .uppgifter(getUppgifter(personItem.getPersonuppgift()))
         .build();
