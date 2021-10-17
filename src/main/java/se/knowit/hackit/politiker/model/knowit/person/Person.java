@@ -31,7 +31,7 @@ public class Person {
 
   public static Person from(PersonItem personItem) {
     return Person.builder()
-        .personId(personItem.getSourceid())
+        .personId(personItem.getIntressent_id())
         .foddAr(personItem.getFodd_ar())
         .kon(personItem.getKon())
         .efternamn(personItem.getEfternamn())
