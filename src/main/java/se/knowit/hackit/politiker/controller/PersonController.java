@@ -1,6 +1,7 @@
 package se.knowit.hackit.politiker.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class PersonController {
   private PersonService personService;
 
   @GetMapping()
+  @Cacheable(value = "persons")
   public Flux<Person> getPersons(
       @RequestParam(required = false) String partiKod,
       @RequestParam(required = false) String utskottKod) {
